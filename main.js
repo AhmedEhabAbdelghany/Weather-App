@@ -46,7 +46,8 @@ city.addEventListener("keyup", getdata)
 
 async function getdata() {
     let search = city.value
-    let data = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=803894e227e342f7806133312242106&q=${search}&days=7`)
+    let apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${search}&days=7`
+    let data = await fetch(apiUrl)
     let result = await data.json()
 
     if (!result.error) {
